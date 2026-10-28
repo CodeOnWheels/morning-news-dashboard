@@ -1,6 +1,6 @@
 # Morning News Dashboard
 
-A standalone, responsive morning briefing designed to be refreshed by a ChatGPT scheduled task. ChatGPT researches the news and rewrites the HTML; the browser displays the saved edition.
+A standalone, responsive morning briefing designed to be refreshed by a ChatGPT scheduled task. ChatGPT researches the news and applies targeted content edits to the existing HTML; the browser displays the saved edition.
 
 The shared HTML uses placeholders for local coverage and the poll. Fill them during your first local refresh.
 
@@ -119,20 +119,39 @@ Highlight [FAVORITE TEAM]'s row only if ranked; never insert an unranked team.
 If no newer poll is available, retain the latest verified poll with its
 actual date rather than implying it was newly published.
 
-Write a temporary UTF-8 HTML file in the destination folder. Validate the
+Keep one scheduled task and one standalone HTML deliverable. Research all
+five sections in this task without section or editor subagents. Do not add
+JSON files, templates, rendering scripts, build tools, or runtime dependencies.
+
+Copy the existing HTML to a temporary UTF-8 file in the destination folder.
+Apply targeted edits to edition metadata (including document title and moon
+indicator), quote and attribution, summaries, sources and favicons, market
+figures and timestamps, and poll rankings, records, date and favorite-team
+highlight. Do not regenerate or reproduce the entire HTML in model output.
+Preserve existing markup where possible; add or remove only content rows,
+paragraphs and source entries required by the fresh edition.
+
+Compare the temporary copy with the original. CSS and JavaScript must be
+unchanged, navigation and section IDs must remain intact, and all other
+differences must be limited to the permitted content updates. Validate the
 five sections and their order, source organization counts, three complete
 market displays and timestamps, full poll table and ties, title and date
 consistency, source links, and theme JavaScript. Inspect the rendered page
 when browser tools are available; report if visual inspection is unavailable.
 
 Only after validation succeeds, preserve a backup of the last complete
-edition and replace the destination safely. If research, verification,
+edition and replace the destination safely. Before replacement, confirm the
+destination has not changed since it was read; stop and report any conflict
+rather than overwriting newer work. Temporary files and backups are allowed
+during execution. If research, verification,
 writing, or validation fails, leave the destination unchanged and report
 the failure. Never advance the displayed date while retaining old reporting.
 
 Report the edition date, information cutoff, actual market session date,
 poll publication date, destination, and validation outcome. Distinguish
-a manual run from a scheduled execution.
+a manual run from a scheduled execution. Report the backup location. Report
+actual token usage only if exposed by the run environment; otherwise state
+that it is unavailable. Do not infer token savings or cost from text length.
 
 This prompt updates the local dashboard only. Do not publish or push
 changes to GitHub.
