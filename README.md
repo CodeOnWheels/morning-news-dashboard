@@ -17,6 +17,17 @@ The HTML contains no scheduler, live feed, or API integration. Downloading this 
 
 **Current status:** the included page is the manually prepared October 19, 2026 historical test edition, “Shifting Ground.” No successful scheduled refresh has been confirmed. Its intended information cutoff is [REFRESH TIME] [YOUR TIMEZONE]; market data and the AP poll have their own dates. The reporting has not received a complete independent article-by-article audit.
 
+## Limitations
+
+- **Static snapshot:** the browser displays the saved edition. It does not fetch live news, prices, or rankings; reloading the page does not research a new edition.
+- **Automation is not yet demonstrated:** no successful scheduled refresh has been confirmed. The repository includes refresh instructions, but no executable refresh pipeline, scheduler, or API integration.
+- **Validation depends on the task:** source checks, backups, and safe file replacement are requirements in the refresh prompt, not guarantees enforced by repository code. No automated test suite or continuous integration is included.
+- **Reporting needs review:** AI-generated summaries can contain factual errors, unsupported claims, incorrect dates, or broken citations. The historical test edition has not received a complete independent article-by-article audit. Check the original sources before relying on its reporting or market figures.
+- **The sample is incomplete:** local coverage and the AP Top 25 use placeholders. Personalize the setup and complete a verified refresh before treating the dashboard as a finished briefing.
+- **Local setup is required:** refreshes depend on a compatible ChatGPT environment, web and file access, account availability, and the local computer being available. A configured schedule does not prove that a run completed; inspect the run history and output.
+- **Reliability is unmeasured:** repeated scheduled runs, recovery from failures, factual accuracy, and cross-browser accessibility have not been documented through a reproducible evaluation.
+- **External resources can change:** source pages may move, become unavailable, or require a subscription. Favicons are loaded from Google's service, so opening the page sends third-party image requests.
+
 ## Open the dashboard
 
 Download or clone this repository, then open `index.html` in your browser. Bookmark that file and keep its location stable. All HTML, CSS, and theme JavaScript are contained in this one file; no build step is required.
