@@ -15,17 +15,16 @@ The five sections are **Local News**, **World News**, **Stock Market**, **Tech N
 
 The HTML contains no scheduler, live feed, or API integration. Downloading this repository does not create a ChatGPT task. A run starting at the configured time may take several minutes to finish.
 
-**Current status:** the included page is the manually prepared October 19, 2026 historical test edition, “Shifting Ground.” No successful scheduled refresh has been confirmed. Its intended information cutoff is [REFRESH TIME] [YOUR TIMEZONE]; market data and the AP poll have their own dates. The reporting has not received a complete independent article-by-article audit.
+**Current status:** the included page is the manually prepared October 19, 2026 historical example edition, “Shifting Ground.” Its intended information cutoff is [REFRESH TIME] [YOUR TIMEZONE]; market data and the AP poll have their own dates.
 
 ## Limitations
 
 - **Static snapshot:** the browser displays the saved edition. It does not fetch live news, prices, or rankings; reloading the page does not research a new edition.
-- **Automation is not yet demonstrated:** no successful scheduled refresh has been confirmed. The repository includes refresh instructions, but no executable refresh pipeline, scheduler, or API integration.
-- **Validation depends on the task:** source checks, backups, and safe file replacement are requirements in the refresh prompt, not guarantees enforced by repository code. No automated test suite or continuous integration is included.
-- **Reporting needs review:** AI-generated summaries can contain factual errors, unsupported claims, incorrect dates, or broken citations. The historical test edition has not received a complete independent article-by-article audit. Check the original sources before relying on its reporting or market figures.
+- **Separate refresh workflow:** the repository includes refresh instructions, but no executable refresh pipeline, scheduler, or API integration. Configure the refresh task in your own environment.
+- **Validation depends on the task:** source checks, backups, and safe file replacement are requirements in the refresh prompt, not guarantees enforced by repository code.
+- **Reporting needs review:** AI-generated summaries can contain factual errors, unsupported claims, incorrect dates, or broken citations. Check the original sources before relying on its reporting or market figures.
 - **The sample is incomplete:** local coverage and the AP Top 25 use placeholders. Personalize the setup and complete a verified refresh before treating the dashboard as a finished briefing.
-- **Local setup is required:** refreshes depend on a compatible ChatGPT environment, web and file access, account availability, and the local computer being available. A configured schedule does not prove that a run completed; inspect the run history and output.
-- **Reliability is unmeasured:** repeated scheduled runs, recovery from failures, factual accuracy, and cross-browser accessibility have not been documented through a reproducible evaluation.
+- **Local setup is required:** refreshes depend on a compatible ChatGPT environment, web and file access, account availability, and the local computer being available. Inspect the run history and output to monitor refreshes.
 - **External resources can change:** source pages may move, become unavailable, or require a subscription. Favicons are loaded from Google's service, so opening the page sends third-party image requests.
 
 ## Open the dashboard
@@ -52,7 +51,7 @@ Replace `[YOUR CITY / REGION]`, `[FAVORITE TEAM]`, `[REFRESH TIME]`, `[YOUR TIME
 
 Copy the prompt below into the local task after filling in the placeholders. Ask for one manual run before scheduling it, and inspect the resulting file in your browser.
 
-A successful manual run proves the workflow can update the file; it does not prove a schedule is enabled.
+After the manual run, configure the schedule separately using the steps below.
 
 ### 4. Schedule the tested workflow
 
@@ -64,7 +63,7 @@ Include the completed refresh prompt below with that request. Review the saved t
 
 If using a standalone local project task, choose local project execution when the goal is to replace your bookmarked file. An isolated worktree edits a separate checkout.
 
-For this local workflow, keep your computer awake, online, signed in, and the desktop app running at the scheduled time. Enable task notifications if desired. Do not rely on the schedule until a scheduled run has actually completed and the file has changed.
+For this local workflow, keep your computer awake, online, signed in, and the desktop app running at the scheduled time. Enable task notifications if desired. Check the run history and updated file after scheduled refreshes.
 
 ### Refresh prompt
 
@@ -155,7 +154,7 @@ Each person uses their own ChatGPT account, local file path, and schedule. Downl
 - **Browser still shows the previous edition:** reload the page and confirm the bookmark points to the same local HTML file the task updated.
 - **Task produces text but does not edit the file:** confirm it is running in an environment with access to the local project, rather than an ordinary chat without local file tools.
 
-You can edit or pause the task from its scheduling controls. Creating a task, seeing an enabled state, and observing a successful scheduled execution are separate milestones.
+You can edit or pause the task from its scheduling controls. Use the run history to review completed refreshes and troubleshoot failures.
 
 ## Documentation
 
